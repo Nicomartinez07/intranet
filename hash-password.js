@@ -1,14 +1,14 @@
 const bcrypt = require('bcryptjs');
 
-const password = 'password123'; // <-- CAMBIA ESTO por la contraseña que desees
+const password = 'password123'; // <-- Cambia esto por la contraseña que quieras generar
 const saltRounds = 10;
 
-bcrypt.hash(password, saltRounds, function(err, hash) {
-    if (err) {
-        console.error("Error al generar el hash:", err);
-        return;
+async function generarHash() {
+    try {
+        const hash = await bcrypt.hash(password, saltRounds);
+    } catch (err) {
+        console.error("❌ Error al generar el hash:", err);
     }
-    console.log("Tu contraseña simple es:", password);
-    console.log("\nCopia y pega este hash en tu base de datos:");
-    console.log(hash);
-});
+}
+
+generarHash();

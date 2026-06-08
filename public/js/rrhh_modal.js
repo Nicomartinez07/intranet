@@ -90,24 +90,35 @@ document.addEventListener('DOMContentLoaded', () => {
         
         try {
             const res = await fetch(`/api/rrhh/files?category=${category}`, { credentials: 'include' });
-            let fetchedFiles = await res.json();
+            // El backend devuelve un array de strings puros: ["archivo1.pdf", "archivo2.docx"]
+            let fetchedFiles = await res.json(); 
             
             container.innerHTML = '';
             if (fetchedFiles.length === 0) {
                 container.innerHTML = '<p style="color: #64748b;">No hay formularios disponibles en esta sección.</p>';
             } else {
+                // Recorremos los strings del array ('file' ahora es el nombre del archivo directamente)
                 fetchedFiles.forEach(file => {
                     const btnWrapper = document.createElement('div');
                     btnWrapper.style.display = 'flex';
                     btnWrapper.style.gap = '5px';
                     
                     const btn = document.createElement('a');
-                    btn.href = file.url;
+                    
+                    // CORRECCIÓN CRÍTICA: Construimos la URL real hacia la carpeta /docs pública.
+                    // Como 'public/' está configurado como static en Express, no debe ir en la URL del navegador.
+                    let subFolder = '';
+                    if (category === 'admision') subFolder = 'personal/form_admision';
+                    else if (category === 'movimiento') subFolder = 'personal/form_mov_personal';
+                    else subFolder = category; // descargas, descargas_wifi, etc.
+
+                    btn.href = `/docs/${subFolder}/${file}`;
                     btn.target = '_blank';
                     btn.className = 'rrhh-btn';
                     btn.style.flexGrow = '1';
                     
-                    const displayName = formatFileName(file.name);
+                    // Formateamos el nombre usando tu función original pasándole el string directo
+                    const displayName = formatFileName(file);
                     
                     btn.innerHTML = `
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg>
@@ -116,13 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     btnWrapper.appendChild(btn);
 
-                    // Ahora permitimos eliminar todos los archivos reales que provienen del servidor
+                    // Botón de eliminar (Corregido para pasar los parámetros en el orden de tu frontend)
                     if (isAdminOrTecnico) {
                         const delBtn = document.createElement('button');
                         delBtn.className = 'rrhh-admin-btn';
                         delBtn.title = 'Eliminar archivo';
                         delBtn.innerHTML = '🗑️';
-                        delBtn.onclick = () => deleteFile(category, file.name);
+                        // Pasamos la categoría y el nombre del archivo
+                        delBtn.onclick = () => deleteFile(category, file); 
                         btnWrapper.appendChild(delBtn);
                     }
                     
@@ -130,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            // Render Upload controls if Admin
+            // Controles de subida para Administradores / Técnicos (Manteniendo tu estilo original)
             uploadContainer.innerHTML = '';
             if (isAdminOrTecnico) {
                 const fileInput = document.createElement('input');
@@ -149,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } catch (error) {
+            console.error('Error detallado en el frontend:', error);
             container.innerHTML = '<p style="color: red;">Error al cargar archivos.</p>';
         }
     }
