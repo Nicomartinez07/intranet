@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2/promise');
@@ -35,12 +36,13 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 console.log('--- El servidor está buscando las vistas en la ruta:', path.join(__dirname, 'views'), '---');
 const dbConfig = {
-    host: 'localhost',
-    user: 'root',
-    password: '20_Base_2*5.', // Asegúrate de que esta sea tu contraseña correcta
-    database: 'intranet_db'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME || 'intranet_db',
+    connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT, 10) || 10
 };
-const JWT_SECRET = 'tu_clave_secreta_super_segura';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // --- Middlewares ---
 app.use(express.json());
