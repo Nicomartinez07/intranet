@@ -1,0 +1,56 @@
+<div id="manage-users-modal" class="modal">
+    <div class="modal-content modal-lg">
+        <span class="close-button">&times;</span>
+        <h2>Usuarios del Sistema</h2>
+        <button id="add-new-user-btn" class="save-coeficiente-btn" style="margin-bottom: 15px;">Añadir Nuevo Usuario</button>
+        <div id="users-list-container"></div>
+    </div>
+</div>
+
+<div id="user-form-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="user-modal-title">Crear Nuevo Usuario</h2>
+        <form id="user-form">
+            <input type="hidden" id="user-id">
+            <div class="form-row">
+                <div class="form-group"><label for="user-nombre">Nombre*</label><input type="text" id="user-nombre" required></div>
+                <div class="form-group"><label for="user-apellido">Apellido*</label><input type="text" id="user-apellido" required></div>
+            </div>
+            <div class="form-group"><label for="user-username">Nombre de Usuario*</label><input type="text" id="user-username" required></div>
+            <div class="form-group"><label for="user-password">Contraseña (dejar en blanco para no cambiar)</label><input type="password" id="user-password"></div>
+            <div class="form-group"><label for="user-role">Rol*</label>
+                <select id="user-role" required>
+                    <option value="" disabled selected>Selecciona un rol...</option>
+                    <option value="admin">Administrador</option>
+                    <option value="tecnico">Técnico Informática</option>
+                    <option value="servicios">Servicios Generales</option>
+                    <option value="editor">Editor (Aulas)</option>
+                    <option value="mecanica">Mecánica (Electromec.)</option>
+                </select>
+            </div>
+            <button type="submit">Guardar Cambios</button>
+            <p id="user-creation-error" class="error-message"></p>
+        </form>
+    </div>
+</div>
+
+<div id="manage-problems-modal" class="modal">
+    <div class="modal-content modal-lg">
+        <span class="close-button">&times;</span>
+        <h2>Gestionar Lista de Problemas</h2>
+        <div class="form-group">
+            <label for="problem-type-selector">Selecciona la categoría a gestionar:</label>
+            <select id="problem-type-selector"></select>
+        </div>
+        <hr>
+        <div id="problems-list-container"></div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label for="new-problem-name">Añadir nuevo problema:</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="new-problem-name" placeholder="Nombre del problema" style="flex-grow: 1;">
+                <button id="add-problem-btn" class="save-coeficiente-btn">Añadir</button>
+            </div>
+        </div>
+    </div>
+</div>

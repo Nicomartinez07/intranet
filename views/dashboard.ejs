@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Intranet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <%- include('partials/header'); %>
+
+    <div class="body-container">
+        <aside id="side-menu" class="sidebar">
+            <div class="sidebar-header"></div>            
+                <h2 class="sidebar-title">Menú</h2>
+                <button id="menu-close-btn" class="close-button">&times;</button>
+            
+                <nav id="sidebar-nav">
+                    <a href="/" class="menu-button">🏠 
+                    <span >Home</span>    
+                    </a>
+                    <a href="/dashboard" class="menu-button">📊 
+                        <span >Dashboard</span>
+                    </a>
+                    <button id="open-new-ticket-form" class="menu-button">📝 
+                        <span >Nuevo Pedido</span>
+                    </button>
+                </nav>
+            </div>
+            
+        </aside>
+
+        <main class="main-content">
+            <h1>Listado de Pedidos</h1>
+            <div id="admin-ticket-choice" class="hidden-form">
+                <h2>Seleccionar Tipo de Pedido</h2>
+                <label for="ticket-type-selector">Como administrador, puedes crear un pedido de:</label>
+                <select id="ticket-type-selector">
+                    <option value="" selected disabled>Elige una opción...</option>
+                    <option value="tecnico">Soporte Técnico</option>
+                    <option value="servicios">Servicios Generales</option>
+                    <option value="aula">Solicitud de Aula</option>
+                    <option value="electromecanico">Soporte Electromecánico</option>
+                </select>
+                <br><br>
+                <button type="button" class="cancel-button">Cancelar</button>
+            </div>
+            <div id="tech-support-form-dashboard" class="hidden-form">
+                <h2>Nuevo Pedido: Soporte Técnico</h2>
+                <form id="submit-tech-ticket-dashboard">
+                    <input type="hidden" name="ticket_type" value="Soporte Técnico">
+                    <div class="form-row">
+                        <div class="form-group"><label>Apellido*</label><input type="text" name="apellido" required></div>
+                        <div class="form-group"><label>Nombre*</label><input type="text" name="nombre" required></div>
+                    </div>
+                    <div class="form-group"><label>Problema</label><select name="problema" class="problema-select" data-ticket-type="Soporte Técnico"></select></div>
+                    <div class="form-group"><label>Descripción*</label><textarea name="description" rows="4" required></textarea></div>
+                    <button type="submit">Enviar Pedido</button>
+                    <button type="button" class="cancel-button">Cancelar</button>
+                </form>
+            </div>
+            <div id="services-support-form-dashboard" class="hidden-form">
+                <h2>Nuevo Pedido: Servicios Generales</h2>
+                <form id="submit-services-ticket-dashboard">
+                    <input type="hidden" name="ticket_type" value="Servicios Generales">
+                    <div class="form-row">
+                        <div class="form-group"><label>Apellido*</label><input type="text" name="apellido" required></div>
+                        <div class="form-group"><label>Nombre*</label><input type="text" name="nombre" required></div>
+                    </div>
+                    <div class="form-group"><label>Problema</label><select name="problema" class="problema-select" data-ticket-type="Servicios Generales"></select></div>
+                    <div class="form-group"><label>Descripción*</label><textarea name="description" rows="4" required></textarea></div>
+                    <button type="submit">Enviar Pedido</button>
+                    <button type="button" class="cancel-button">Cancelar</button>
+                </form>
+            </div>
+            
+            <table class="ticket-table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Solicitante</th><th>Dependencia</th><th>Tipo de Pedido</th>
+                        <th>Problema</th><th>Estado</th><th>Fecha de Creación</th>
+                    </tr>
+                </thead>
+                <tbody id="tickets-list"></tbody>
+            </table>
+        </main>
+    </div>
+
+    <%- include('partials/modals/_modals_globales'); %>
+    <%- include('partials/modals/_modals_admin'); %>
+    
+    <script src="js/shared.js"></script>
+    <script src="js/dashboard.js"></script>
+    <%- include('partials/footer'); %>
+</body>
+</html>

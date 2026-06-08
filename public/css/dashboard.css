@@ -1,0 +1,174 @@
+/* --- public/css/dashboard.css (Versión Final y Completa) --- */
+
+/* === Estilos específicos del Dashboard === */
+
+/* --- Tabla Principal de Tickets --- */
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    font-size: 0.9em;
+}
+.ticket-table th, .ticket-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+.ticket-table th {
+    background-color: #d4d4d4;
+}
+
+/* --- Selectores de Estado en Tabla --- */
+.status-selector {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%;
+    background-size: .65em auto;
+    padding-right: 2em;
+    color: white;
+}
+.status-selector.status-abierto, .status-selector.status-solicitada { background-color: #e74c3c; }
+.status-selector.status-en-proceso { background-color: #f39c12; }
+.status-selector.status-cerrado, .status-selector.status-aprobada { background-color: #2ecc71; }
+.status-selector.status-rechazada { background-color: #95a5a6; }
+
+/* --- Formularios Ocultos de "Nuevo Pedido" --- */
+.hidden-form {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.hidden-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* --- Estilos para Modales de Administración (Usuarios y Problemas) --- */
+.finanzas-table { /* Reutilizamos esta clase para la tabla de usuarios */
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.finanzas-table th, .finanzas-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+.finanzas-table th {
+    background-color: #818181;
+    font-weight: 600;
+    color: #ffffff;
+}
+.finanzas-table tbody tr:hover {
+    background-color: #fafafa;
+}
+.finanzas-table td:last-child {
+    text-align: right;
+}
+
+.problems-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.problems-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+.problems-list li:last-child {
+    border-bottom: none;
+}
+.problem-text {
+    flex-grow: 1;
+}
+.problem-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.problem-actions button {
+    margin-left: 8px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: white;
+}
+.edit-problem-btn { background-color: #ffc107; color: #333; }
+.save-problem-btn { background-color: #28a745; }
+.delete-problem-btn { background-color: #dc3545; }
+
+
+/* Estilo para los selects de los formularios del dashboard */
+.hidden-form select,
+#manage-problems-modal select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background-color: white;
+}
+
+/* Estilo para la sección "Añadir nuevo problema" */
+#new-problem-name {
+    width: 100%; /* Ocupa el espacio disponible */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+#add-problem-btn, #add-new-user-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+}
+#add-problem-btn:hover, #add-new-user-btn:hover {
+    background-color: #218838;
+}
+
+/* Botón genérico de guardado (verde) */
+.save-coeficiente-btn {
+    padding: 8px 12px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.save-coeficiente-btn:hover {
+    background-color: #218838;
+}

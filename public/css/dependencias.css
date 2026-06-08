@@ -1,0 +1,200 @@
+/* 
+ * Styles for dependencias.ejs Directory 
+ * Uses modern design aesthetics
+ */
+
+.dep-body-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.directory-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.deps-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.deps-subtitle {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#searchDir, #modalSearchDir {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+#searchDir:focus, #modalSearchDir:focus {
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Directory Layout */
+.directory-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem 2rem 1rem;
+}
+
+/* Accordion or Card Style for Dependency */
+.dep-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.dep-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.dep-card-header {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    color: #fff;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.dep-card-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dep-card-body {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.office-item {
+    padding: 1.2rem;
+    border-bottom: 1px solid #f1f2f6;
+    transition: background-color 0.2s ease;
+}
+
+.office-item:last-child {
+    border-bottom: none;
+}
+
+.office-item:hover {
+    background-color: #fafbfa;
+}
+
+.office-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.office-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+.detail-item i {
+    margin-right: 4px;
+    opacity: 0.7;
+}
+
+/* Specific styling for internal elements */
+.phone-badge {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* Edit UI styles */
+.edit-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 0.6;
+}
+
+.edit-btn:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.edit-input {
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 1rem;
+    color: #34495e;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.edit-input:focus {
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+    border-color: #2980b9;
+}

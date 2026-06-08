@@ -1,0 +1,26 @@
+<div id="change-password-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Cambiar Mi Contraseña</h2>
+        <form id="change-password-form">
+            <div class="form-group"><label for="current-password">Contraseña Actual:</label><input type="password" id="current-password" required></div>
+            <div class="form-group"><label for="new-password-change">Nueva Contraseña:</label><input type="password" id="new-password-change" required></div>
+            <div class="form-group"><label for="confirm-new-password">Confirmar Nueva Contraseña:</label><input type="password" id="confirm-new-password" required></div>
+            <button type="submit">Actualizar Contraseña</button>
+            <p id="change-password-error" class="error-message"></p>
+        </form>
+    </div>
+</div>
+
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Acceso a la Intranet</h2>
+        <form id="login-form">
+            <label for="login-username">Usuario:</label><input type="text" id="login-username" required>
+            <label for="login-password">Contraseña:</label><input type="password" id="login-password" required>
+            <button type="submit">Ingresar</button>
+            <p id="login-error-message" class="error-message"></p>
+        </form>
+    </div>
+</div>

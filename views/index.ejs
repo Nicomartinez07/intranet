@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dependencias.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+
+        <div class="body-container">
+            <aside id="side-menu" class="sidebar">
+                <div class="sidebar-header"></div>
+                <h2 class="sidebar-title">Menú</h2>
+                <button id="menu-close-btn" class="close-button">&times;</button>
+
+                <nav>
+                    <button id="open-dependencias-modal-btn" class="menu-button"
+                        style="border: none; outline: none; background: rgba(255, 255, 255, 0.03); text-align: left; font-family: inherit;">
+                        <span class="menu-text">🏢 Dependencias</span>
+                    </button>
+                    <a href="http://clinicas.odontologia" class="menu-button" target="_blank"><span class="menu-text">🦷
+                            Clínicas</span></a>
+                    <a href="http://cde.odontologia" class="menu-button" target="_blank"><span class="menu-text">✨
+                            Esterilización</span></a>
+                    <a href="http://patrimomio.odontologia" class="menu-button" target="_blank"><span
+                            class="menu-text">🏛️ Patrimonio</span></a>
+                    <a href="http://abastecimiento.odontologia" class="menu-button" target="_blank"><span
+                            class="menu-text">📦 Abastecimiento</span></a>
+                    <a href="http://odontologia.uba.ar" class="menu-button" target="_blank"><span class="menu-text">🏥
+                            Web Odon</span></a>
+                    <a href="http://pilaga.odontologia" class="menu-button" target="_blank"><span class="menu-text">🧮
+                            Pilaga</span></a>
+                    <a href="https://ag.odontologia.uba.ar/guarani" class="menu-button" target="_blank"><span
+                            class="menu-text">🎓 Pregrado</span></a>
+                    <a href="https://autogestion.rrhh.uba.ar" class="menu-button" target="_blank"><span>👥 RRHH</span></a>
+
+                </nav>
+        </div>
+        <div class="sidebar-footer" id="sidebar-session-controls">
+        </div>
+        </aside>
+
+        <main class="main-content">
+
+            <h1 class="section-title">Pedidos de Soporte</h1>
+            <section class="options-container">
+                <div id="open-tech-modal-btn" class="option-box" data-ticket-type="Soporte Técnico">
+                    <div class="option-box-header">
+                        <h3>Soporte Técnico</h3>
+                    </div>
+                    <p>Problemas con equipos, software o conectividad.</p>
+                </div>
+                <div id="open-services-modal-btn" class="option-box" data-ticket-type="Servicios Generales">
+                    <div class="option-box-header">
+                        <h3>Servicios Generales</h3>
+                    </div>
+                    <p>Mantenimiento, limpieza o reparaciones.</p>
+                </div>
+                <div id="open-aula-modal-btn" class="option-box" data-ticket-type="Solicitud de Aula">
+                    <div class="option-box-header">
+                        <h3>Solicitud de Aula</h3>
+                    </div>
+
+                    <p>Reserva de espacios físicos para clases o eventos.</p>
+                </div>
+                <div id="open-electro-modal-btn" class="option-box" data-ticket-type="Soporte Electromecánico">
+                    <div class="option-box-header">
+                        <h3>Soporte Electromecánico</h3>
+                    </div>
+
+                    <p>Problemas con instalaciones eléctricas, aire, etc.</p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <h1 class="section-title">Accesos - Formularios</h1>
+            <section class="options-container">
+                <div id="open-downloads-modal-btn" class="option-box">
+                    <div class="option-box-header">
+                        <h3>Descargas</h3>
+                    </div>
+                    <p>Hojas A4, WIFI, Planillas e Instructivos.</p>
+                </div>
+                <div id="open-finanzas-modal-btn" class="option-box">
+                    <div class="option-box-header">
+                        <h3>Financiamiento</h3>
+                    </div>
+                    <p>Consulta los coeficientes de financiamiento.</p>
+                </div>
+                <div class="option-box open-dependencias-btn" style="cursor: pointer;">
+                    <div class="option-box-header">
+                        <h3>🏢 Dependencias</h3>
+                    </div>
+                    <p>Directorio telefónico y ubicación de dependencias.</p>
+                </div>
+                <div id="open-rrhh-modal-btn" class="option-box" style="cursor: pointer;">
+                    <div class="option-box-header">
+                        <h3>👥 Dirección de RRHH</h3>
+                    </div>
+                    <p>Acceso a recursos e información para el personal.</p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <h1 class="section-title">Herramientas</h1>
+            <section class="options-container">
+                <a href="http://pdf.odontologia.uba.ar" target="_blank" class="option-box"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="option-box-header">
+                        <h3>Conversor de Archivos</h3>
+                    </div>
+                    <p>Convierte tus archivos PDF a otros formatos.</p>
+                </a>
+                <a href="/docs/cursos/manual-word-excel.pdf" download class="option-box"
+                    style="text-decoration: none; color: inherit; display: block;">
+                    <div class="option-box-header">
+                        <h3>Manual de Word - Excel</h3>
+                    </div>
+                    <p>Descarga el manual de uso de Word y Excel.</p>
+                </a>
+            </section>
+            <div class="divider"></div>
+        </main>
+        </div>
+
+
+        <%- include('partials/modals/_modals_globales'); %>
+            <%- include('partials/modals/_modals_index'); %>
+                <%- include('partials/modals/_modals_admin'); %>
+                    <script src="js/shared.js"></script>
+                    <script src="js/script.js"></script>
+                    <script src="js/dependencias_modal.js"></script>
+                    <script src="js/rrhh_modal.js"></script>
+                    <%- include('partials/footer'); %>
+</body>
+
+</html>

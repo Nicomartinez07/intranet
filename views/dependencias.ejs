@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependencias - Intranet</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dependencias.css">
+</head>
+
+<body>
+    <%- include('partials/header'); %>
+
+        <div class="body-container dep-body-container">
+
+            <aside id="side-menu" class="sidebar">
+                <h2 class="sidebar-title">Menú</h2>
+                <button id="menu-close-btn" class="close-button">&times;</button>
+                <nav>
+                    <a href="/" class="menu-button"><span class="menu-text">🏠 Inicio</span></a>
+                    <a href="http://clinicas.odontologia" class="menu-button" target="_blank"><span class="menu-text">🦷
+                            Clínicas</span></a>
+                    <a href="http://cde.odontologia" class="menu-button" target="_blank"><span class="menu-text">✨
+                            Esterilización</span></a>
+                    <a href="http://patrimomio.odontologia" class="menu-button" target="_blank"><span
+                            class="menu-text">🏛️ Patrimonio</span></a>
+                </nav>
+                <div class="sidebar-footer" id="sidebar-session-controls"></div>
+            </aside>
+
+            <main class="main-content full-width">
+
+                <div class="directory-header">
+                    <a href="/" class="back-link">← Volver al Inicio</a>
+                    <h1 class="section-title deps-title">Directorio de Dependencias</h1>
+                    <p class="deps-subtitle">Busca dependencias, oficinas y líneas de teléfono</p>
+
+                    <div class="search-container">
+                        <input type="text" id="searchDir" placeholder="Buscar por nombre, teléfono o piso..."
+                            autocomplete="off">
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="loading-spinner">Cargando directorio...</div>
+                <div id="dirContainer" class="directory-container">
+                    <!-- Data injected here by JS -->
+                </div>
+                <div id="noResults" class="no-results" style="display: none;">
+                    No se encontraron resultados para tu búsqueda.
+                </div>
+
+            </main>
+        </div>
+
+        <%- include('partials/modals/_modals_globales'); %>
+            <script src="/js/shared.js"></script>
+            <script src="/js/dependencias.js"></script>
+            <script src="/js/script.js"></script>
+            <%- include('partials/footer'); %>
+</body>
+
+</html>

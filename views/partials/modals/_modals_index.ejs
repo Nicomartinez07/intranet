@@ -1,0 +1,167 @@
+<div id="ticket-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="ticket-modal-title"></h2>
+        <form id="ticket-form">
+            <input type="hidden" id="ticket-type" name="ticket_type">
+            <div class="form-row">
+                <div class="form-group"><label for="ticket-apellido">Apellido*</label><input type="text" id="ticket-apellido" name="apellido" required></div>
+                <div class="form-group"><label for="ticket-nombre">Nombre*</label><input type="text" id="ticket-nombre" name="nombre" required></div>
+            </div>
+            <div class="form-group"><label for="ticket-dependencia">Dependencia</label><select id="ticket-dependencia" name="dependencia_id"></select></div>
+            <div class="form-group"><label for="ticket-problema">Problema</label><select id="ticket-problema" name="problema"></select></div>
+            <div class="form-group"><label for="ticket-description">Descripción Detallada*</label><textarea id="ticket-description" name="description" rows="4" required></textarea></div>
+            <button type="submit">Enviar Pedido</button>
+        </form>
+    </div>
+</div>
+
+<div id="downloads-modal" class="modal">
+    <div class="modal-content modal-xl">
+        <span class="close-button" id="close-downloads-btn">&times;</span>
+        <div class="directory-header" style="margin-bottom: 1rem; padding: 0.5rem 0; flex-shrink: 0;">
+            <h2 class="deps-title" style="margin: 0; color: var(--primary-color);">Descarga de Formularios</h2>
+        </div>
+        <div style="overflow-y: auto; flex-grow: 1; padding-right: 10px;">
+            <div style="background: rgba(26, 35, 126, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px; font-size: 1.05em; line-height: 1.6; border-left: 4px solid var(--accent-color);">
+                <strong style="color: var(--primary-color); display: block; margin-bottom: 10px; font-size: 1.1em;">Documentos y Planillas Institucionales</strong>
+                <p style="margin: 0;">Aquí encontrará los formularios y hojas con membrete institucional para descargar y utilizar. Puede hacer clic en cualquiera de los botones inferiores para abrir o guardar el documento.</p>
+            </div>
+
+            <div class="rrhh-section">
+                <div id="descargas-container" class="rrhh-grid">
+                    <!-- Buttons injected by JS -->
+                    <p>Cargando archivos...</p>
+                </div>
+                <!-- Upload section injected by JS if admin -->
+                <div id="descargas-upload" class="rrhh-upload-container"></div>
+            </div>
+
+            <div class="rrhh-section" style="margin-top: 40px;">
+                <h3 style="color: #4a6fa5; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px;">Gestión de Wifi</h3>
+                <div id="descargas_wifi-container" class="rrhh-grid">
+                    <!-- Buttons injected by JS -->
+                    <p>Cargando archivos...</p>
+                </div>
+                <!-- Upload section injected by JS if admin -->
+                <div id="descargas_wifi-upload" class="rrhh-upload-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="converter-iframe-modal" class="modal">
+    <div class="modal-content modal-lg">
+        <span class="close-button">&times;</span>
+        <h2>Conversor de Archivos PDF</h2>
+        <iframe id="converter-frame" src="" frameborder="0"></iframe>
+    </div>
+</div>
+
+<div id="finanzas-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Financiamiento para Tarjetas de Crédito</h2>
+        <div id="finanzas-table-container"></div>
+        <div id="finanzas-footer" class="modal-footer"></div>
+    </div>
+</div>
+
+<div id="dependencias-dir-modal" class="modal">
+    <div class="modal-content modal-xl">
+        <span class="close-button">&times;</span>
+        <div class="directory-header" style="margin-bottom: 1rem; padding: 0.5rem 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 15px;" id="modal-deps-title-container">
+                <h2 class="deps-title" style="margin: 0;">Directorio de Dependencias</h2>
+            </div>
+            <div class="search-container" style="flex-grow: 1; max-width: 400px;">
+                <input type="text" id="modalSearchDir" placeholder="Buscar por nombre, teléfono o piso..." autocomplete="off">
+            </div>
+        </div>
+        <div id="modalLoadingIndicator" class="loading-spinner">Cargando directorio...</div>
+        <div id="modalDirContainer" class="directory-container modal-grid">
+            <!-- Data injected here by JS -->
+        </div>
+        <div id="modalNoResults" class="no-results" style="display: none;">
+            No se encontraron resultados para tu búsqueda.
+        </div>
+        
+        <!-- Paginator -->
+        <div class="pagination-container" id="modalPaginationContainer">
+            <!-- Pagination buttons injected here -->
+        </div>
+    </div>
+</div>
+
+<!-- RRHH Modal -->
+<div id="rrhh-modal" class="modal">
+    <div class="modal-content modal-xl">
+        <span class="close-button" id="close-rrhh-btn">&times;</span>
+        <div class="directory-header" style="margin-bottom: 1rem; padding: 0.5rem 0; flex-shrink: 0;">
+            <h2 class="deps-title" style="margin: 0; color: var(--primary-color);">Dirección de Personal y Liquidación de Haberes</h2>
+        </div>
+
+        <div style="overflow-y: auto; flex-grow: 1; padding-right: 10px;">
+            <div style="background: rgba(26, 35, 126, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px; font-size: 1.05em; line-height: 1.6; border-left: 4px solid var(--accent-color);">
+                <strong style="color: var(--primary-color); display: block; margin-bottom: 10px; font-size: 1.1em;">Web para Secretarios y Personal Administrativo de la F.O.U.B.A</strong>
+                <p style="margin: 0;">En esta página encontrarán información sobre procedimientos para los trámites a realizar ante esta Dirección como así también los distintos formularios necesarios para llevarlos a cabo. Para mejor visualización de los archivos en formato PDF y sus campos editables recomendamos instalar en su PC <a href="https://get.adobe.com/es/reader/" target="_blank" style="color: var(--accent-color); font-weight: bold; text-decoration: none;">Acrobat Reader</a>. (En la siguiente página de descarga recomendamos destildar la Oferta Opcional para que no tenga conflictos con su Antivirus).</p>
+            </div>
+
+            <div class="rrhh-section">
+                <h3 style="color: #4a6fa5; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px;">Descarga de Formularios - Departamento de Movimiento de Personal</h3>
+                <div id="rrhh-movimiento-container" class="rrhh-grid">
+                    <!-- Buttons injected by JS -->
+                    <p>Cargando archivos...</p>
+                </div>
+                <!-- Upload section injected by JS if admin -->
+                <div id="rrhh-movimiento-upload" class="rrhh-upload-container"></div>
+            </div>
+
+            <div class="rrhh-section" style="margin-top: 40px;">
+                <h3 style="color: #4a6fa5; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px;">Descarga de Formularios - Departamento de Admisión, Legajos y Asistencia</h3>
+                <div id="rrhh-admision-container" class="rrhh-grid">
+                    <!-- Buttons injected by JS -->
+                    <p>Cargando archivos...</p>
+                </div>
+                <!-- Upload section injected by JS if admin -->
+                <div id="rrhh-admision-upload" class="rrhh-upload-container"></div>
+            </div>
+
+            <div style="background: linear-gradient(to right, #f8fafc, #f1f5f9); border: 1px solid #e2e8f0; border-radius: 12px; padding: 25px; margin-top: 40px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="background: var(--accent-color); padding: 10px; border-radius: 8px; color: white; display: flex;">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
+                    </div>
+                    <h4 style="margin: 0; color: var(--primary-color); font-size: 1.1em;">Ante cualquier duda pueden comunicarse de 9:00 a 13:00 hs. a los siguientes internos:</h4>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: stretch; gap: 15px; text-align: center; flex-wrap: wrap;">
+                    <div style="flex: 1; padding: 0 10px; min-width: 120px;">
+                        <span style="display: block; font-size: 0.85em; color: #64748b; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px;">Legajos y Admisiones</span>
+                        <strong style="color: var(--primary-color); font-size: 1.2em;">76072</strong>
+                    </div>
+                    <div style="width: 1px; background: #cbd5e1; margin: 5px 0;"></div>
+                    <div style="flex: 1; padding: 0 10px; min-width: 120px;">
+                        <span style="display: block; font-size: 0.85em; color: #64748b; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px;">Ausentismo</span>
+                        <strong style="color: var(--primary-color); font-size: 1.2em;">76071 / 76076</strong>
+                    </div>
+                    <div style="width: 1px; background: #cbd5e1; margin: 5px 0;"></div>
+                    <div style="flex: 1; padding: 0 10px; min-width: 120px;">
+                        <span style="display: block; font-size: 0.85em; color: #64748b; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px;">Movimiento de Personal</span>
+                        <strong style="color: var(--primary-color); font-size: 1.2em;">76074</strong>
+                    </div>
+                    <div style="width: 1px; background: #cbd5e1; margin: 5px 0;"></div>
+                    <div style="flex: 1; padding: 0 10px; min-width: 120px;">
+                        <span style="display: block; font-size: 0.85em; color: #64748b; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px;">Liquidación de Haberes</span>
+                        <strong style="color: var(--primary-color); font-size: 1.2em;">76075</strong>
+                    </div>
+                    <div style="width: 1px; background: #cbd5e1; margin: 5px 0;"></div>
+                    <div style="flex: 1; padding: 0 10px; min-width: 120px;">
+                        <span style="display: block; font-size: 0.85em; color: #64748b; text-transform: uppercase; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 5px;">Personal</span>
+                        <strong style="color: var(--primary-color); font-size: 1.2em;">76076</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
