@@ -7,9 +7,9 @@ const { roleToTicketTypeMap } = require('../middlewares/auth');
 exports.getTickets = async (req, res) => {
     try {
         const query = `
-            SELECT t.id, t.ticket_type, t.problema, t.status, t.created_at, 
+            SELECT t.id, t.ticket_type, t.problema, t.description, t.status, t.created_at, 
                    CONCAT(t.apellido, ', ', t.nombre) as solicitante_nombre, 
-                   d.nombre as dependencia_nombre, 
+                   d.dep_nombre as dependencia_nombre, 
                    COALESCE(u.username, 'Anónimo') as registrado_por 
             FROM tickets t 
             LEFT JOIN users u ON t.user_id = u.id 

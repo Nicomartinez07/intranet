@@ -35,3 +35,29 @@ cd TU_REPOSITORIO
 
 npm install 
 node server.js
+
+
+
+
+
+
+
+
+mysql> SHOW TABLES;
++-----------------------+
+| Tables_in_intranet_db |
++-----------------------+
+| dependencias          |
+| interes_tarjetas      |
+| oficinas              |
+| problemas             |
+| sg_problemas          |
+| sg_talleres           |
+| tickets               |
+| users                 |
++-----------------------+
+
+Okey pero para yo por ahora tengo estas tablas en mi base de daots, las tablas dependencias, intereses_tarjetas no habria que sacarlas porque las utilizo en otras partes del intranet.
+ Despues otra cosa, no me quedo muy claro como manejarias los tipos de problema que puede haber porque en el actual funcional, vos podes ir navegando mas que nada en servicios generales, el tipo de solicitud que queres hacer, igualmente creo que lo tenes contemplado. 
+
+ 

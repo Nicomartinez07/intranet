@@ -52,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${ticket.solicitante_nombre}</td>
                     <td>${ticket.dependencia_nombre || 'N/A'}</td>
                     <td>${ticket.ticket_type}</td>
-                    <td>${ticket.problema}</td>
+                    <td>${ticket.problema || 'No especificado'}</td>
+                    <td>${ticket.description || ''}</td>
                     <td><select class="status-selector status-${ticket.status.toLowerCase().replace(/ /g, '-').replace('ó', 'o')}" data-ticket-id="${ticket.id}">${statusOptions}</select></td>
                     <td>${new Date(ticket.created_at).toLocaleString()}</td>
                 `;
@@ -166,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 buildHeaderControls(data, 'dashboard');
                 if (userRole === 'admin') {
                     addAdminSidebarFeatures();
-                }
+                }              
                 fetchTickets();
                 populateProblemSelects();
                 setupEventListeners();

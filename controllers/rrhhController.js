@@ -44,9 +44,6 @@ exports.getFiles = (req, res) => {
     else if (category === 'pdfs') folderPath = path.join(process.cwd(), 'public/docs/pdfs');
     else return res.status(400).json({ message: 'Categoría inválida.' });
 
-    // Esto te va a mostrar la ruta exacta en la terminal de VS Code
-    console.log(`🔎 CONTROL: Buscando en la ruta absoluta: ${folderPath}`);
-
     if (!fs.existsSync(folderPath)) {
         console.log(`⚠️ Alerta: La carpeta no existe en: ${folderPath}`);
         return res.json([]); 

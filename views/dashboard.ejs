@@ -11,12 +11,13 @@
 
     <div class="body-container">
         <aside id="side-menu" class="sidebar">
-            <div class="sidebar-header"></div>            
+            <div class="sidebar-header">
                 <h2 class="sidebar-title">Menú</h2>
                 <button id="menu-close-btn" class="close-button">&times;</button>
-            
-                <nav id="sidebar-nav">
-                    <a href="/" class="menu-button">🏠 
+            </div>
+
+            <nav id="sidebar-nav">
+                 <a href="/" class="menu-button">🏠 
                     <span >Home</span>    
                     </a>
                     <a href="/dashboard" class="menu-button">📊 
@@ -25,9 +26,7 @@
                     <button id="open-new-ticket-form" class="menu-button">📝 
                         <span >Nuevo Pedido</span>
                     </button>
-                </nav>
-            </div>
-            
+            </nav>
         </aside>
 
         <main class="main-content">
@@ -78,7 +77,7 @@
                 <thead>
                     <tr>
                         <th>ID</th><th>Solicitante</th><th>Dependencia</th><th>Tipo de Pedido</th>
-                        <th>Problema</th><th>Estado</th><th>Fecha de Creación</th>
+                        <th>Problema</th><th>Descripcion</th><th>Estado</th><th>Fecha de Creación</th>
                     </tr>
                 </thead>
                 <tbody id="tickets-list"></tbody>

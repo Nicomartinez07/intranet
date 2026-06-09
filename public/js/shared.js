@@ -48,18 +48,21 @@ function buildHeaderControls(data, currentPage = 'index') {
         
         const changePassBtn = document.createElement('button');
         changePassBtn.innerHTML = '🔑 Cambiar Contraseña';
+        changePassBtn.className = 'menu-button';
         changePassBtn.addEventListener('click', () => openModal(document.getElementById('change-password-modal')));
         userMenu.appendChild(changePassBtn);
         
         if (user.role === 'admin') {
             const usersBtn = document.createElement('button');
             usersBtn.innerHTML = '👥 Usuarios';
+            usersBtn.className = 'menu-button';
             usersBtn.addEventListener('click', openManageUsersModal);
             userMenu.appendChild(usersBtn);
         }
 
         const logoutLink = document.createElement('a');
         logoutLink.href = '#';
+        logoutLink.className = 'menu-button';
         logoutLink.innerHTML = '🚪 Cerrar Sesión';
         logoutLink.addEventListener('click', handleLogout);
         userMenu.appendChild(logoutLink);
